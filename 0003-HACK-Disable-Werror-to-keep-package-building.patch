@@ -1,0 +1,25 @@
+From 4912ee6a107e7814295cdbe7e6264e21b1bdb480 Mon Sep 17 00:00:00 2001
+From: "Alexander F. Lent" <lx@xanderlent.com>
+Date: Wed, 4 Jun 2025 23:54:57 -0400
+Subject: [PATCH 3/3] HACK: Disable -Werror to keep package building
+
+---
+ build/cmake/gna_compile_flags.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build/cmake/gna_compile_flags.cmake b/build/cmake/gna_compile_flags.cmake
+index 8a2a107..71ba471 100644
+--- a/build/cmake/gna_compile_flags.cmake
++++ b/build/cmake/gna_compile_flags.cmake
+@@ -71,7 +71,7 @@ else()
+ 
+   # All compilers warnings
+   set(GNA_COMPILE_ERROR_FLAGS ${GNA_COMPILE_ERROR_FLAGS}
+-      -Wall -Werror
++      -Wall
+       -Wextra -Wshadow -Wunused -Wformat)
+ 
+   # GCC & Clang warnings
+-- 
+2.49.0
+

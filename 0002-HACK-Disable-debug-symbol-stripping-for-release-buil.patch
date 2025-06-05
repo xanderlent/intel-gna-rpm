@@ -1,7 +1,7 @@
 From 14e42c249cc2d9332ef32212e4e9cc825b92520f Mon Sep 17 00:00:00 2001
 From: "Alexander F. Lent" <lx@xanderlent.com>
 Date: Wed, 26 Jun 2024 23:32:23 -0400
-Subject: [PATCH 2/2] HACK: Disable debug-symbol stripping for release builds
+Subject: [PATCH 2/3] HACK: Disable debug-symbol stripping for release builds
 
 ---
  src/gna-lib/CMakeLists.txt | 16 ++++++++--------
@@ -35,5 +35,5 @@ index 88cf1ec..16d6190 100644
  include(GNUInstallDirs)
  
 -- 
-2.45.2
+2.49.0
 

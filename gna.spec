@@ -1,6 +1,6 @@
 Name:           gna
 Version:        3.0.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Intel Gaussian & Neural Accelerator Library
 
 License:        LGPL-2.1-or-later AND (GPL-2.0-only WITH Linux-syscall-note)
@@ -8,6 +8,7 @@ URL:            https://github.com/intel/gna
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 Patch0:         0001-HACK-Fix-up-CMake-to-use-correct-directories-on-Fedo.patch
 Patch1:         0002-HACK-Disable-debug-symbol-stripping-for-release-buil.patch
+Patch2:         0003-HACK-Disable-Werror-to-keep-package-building.patch
 
 # TODO Intel seems to intend for this to be an x86-only library
 ExclusiveArch:  i686 x86_64
@@ -53,6 +54,7 @@ developing applications that use %{name}.
 # patch args tell it to ignore the first directory prefix but keep the rest
 %patch 0 -p1
 %patch 1 -p1
+%patch 2 -p1
 
 
 %build
@@ -84,6 +86,8 @@ find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 # TODO: Does the check part of the docs apply to us? https://docs.fedoraproject.org/en-US/packaging-guidelines/CMake/
 
 %changelog
+* Wed Jun 4 2025 Alexander F. Lent <lx@xanderlent.com> - 3.0.0-4
+- Ignore -Werror to keep the package building into the future.
 * Thu Jun 27 2024 Alexander F. Lent <lx@xanderlent.com> - 3.0.0-3
 - Whoops, forgot to include correct changelog in -2
 * Thu Jun 27 2024 Alexander F. Lent <lx@xanderlent.com> - 3.0.0-2
